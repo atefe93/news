@@ -37,6 +37,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @if(!empty($items))
                     @foreach($items as $key=>$item)
                         <tr>
                             <td>
@@ -57,6 +58,11 @@
 
                         </tr>
                     @endforeach
+                    @else
+                        <td>
+                            لیست خبر خالی است
+                        </td>
+                    @endif
                     </tbody>
                 </table>
             </div>

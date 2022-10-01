@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class NewsRepository
 {
-    public function getAllNews()
+    public function getAllNewsOrderByView ()
     {
         return News::query()->orderBy('view','desc')->get();
     }
@@ -27,7 +27,7 @@ class NewsRepository
 
     }
 
-    public function getAllNewsOrderByView()
+    public function getAllNews()
     {
         return News::query()->orderBy('id','desc')->get();
 

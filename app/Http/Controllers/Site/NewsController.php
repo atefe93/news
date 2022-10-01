@@ -12,7 +12,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $items = resolve(NewsRepository::class)->getAllNewsOrderByView();
+        $items = resolve(NewsRepository::class)->getAllNews();
         return view('site.news.index',compact('items'));
 
     }

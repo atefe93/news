@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $items = resolve(NewsRepository::class)->getAllNews();
+        $items = resolve(NewsRepository::class)->getAllNewsOrderByView();
         return view('admin.news.index',compact('items'));
     }
 
