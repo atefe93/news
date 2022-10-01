@@ -37,7 +37,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if(!empty($items))
+                    @if(count($items)>0)
                     @foreach($items as $key=>$item)
                         <tr>
                             <td>
