@@ -4,34 +4,33 @@
 namespace App\Repositories;
 
 
-
-
 use App\Models\News;
 use Illuminate\Http\Request;
 
 
-
 class NewsRepository
 {
-    public function getAllNewsOrderByView ()
+    public function getAllNewsOrderByView()
     {
-        return News::query()->orderBy('view','desc')->get();
+        return News::query()->orderBy('view', 'desc')->get();
     }
+
     public function store(Request $request)
     {
-        News::create([
+        $news = News::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'date'=>$request->input('date'),
+            'date' => $request->input('date'),
         ]);
-
+        return $news;
     }
 
     public function getAllNews()
     {
-        return News::query()->orderBy('id','desc')->get();
+        return News::query()->orderBy('id', 'desc')->get();
 
     }
+
     public function update(News $news)
     {
         $news->update([

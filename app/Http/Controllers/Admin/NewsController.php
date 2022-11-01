@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\SendMessage;
 use App\Repositories\NewsRepository;
 use App\Http\Controllers\Controller;
 use App\Models\News;
@@ -28,7 +29,10 @@ class NewsController extends Controller
             'date' => 'required',
         ]);
 
-        resolve(NewsRepository::class)->store($request);
+       $news= resolve(NewsRepository::class)->store($request);
+       if ($news){
+           event(new SendMessage('یک خبر جدید ثبت شده است'));
+       }
 
        return redirect('/admin/news');
     }
